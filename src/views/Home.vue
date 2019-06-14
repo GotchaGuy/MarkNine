@@ -1,16 +1,16 @@
 <template>
   <!-- <HelloWorld /> -->
-  <section>
-    
-  </section>
+  <Entries/>
+ 
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
+  // import HelloWorld from '../components/HelloWorld'
+  import Entries from '../components/Entries'
   export default {
     components: {
-      HelloWorld
+      // HelloWorld,
+      Entries
     }
   }
 </script>

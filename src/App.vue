@@ -20,14 +20,14 @@
     </v-content> -->
     <header>
 
-    <v-container  >
-      <v-layout >
+    <v-container fluid >
+      <v-layout wrap justify-center justify-content-center>
         <v-flex xs12 >
           <div class="head" >
           <h1>Journally</h1>
           </div>
         </v-flex>
-        <v-flex xs12 >
+        <v-flex xs2 >
           <nav>
           <router-link to="/" >Entries</router-link> |
            <router-link to="/about" >About</router-link> |
@@ -43,17 +43,46 @@
     </v-container>
 
     </header>
+
+    <main>
+      <router-view/>
+
+    </main>
+
+    <footer>
+      <v-container fluid>
+        <v-layout wrap justify-center>
+          <v-flex xs6>
+            <div>
+              <p>Copyright C 2019</p>
+            </div>
+          </v-flex>
+          <v-flex xs6>
+            <nav>
+          <router-link to="/" >Entries</router-link> |
+           <router-link to="/about" >About</router-link> |
+            <router-link to="/contact" >Contact</router-link> |
+             <router-link to="/settings" >Settings</router-link>
+          </nav>
+          </v-flex>
+        </v-layout>
+      </v-container>
+
+    </footer>
+
   </v-app>
 </template>
 
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import Entries from './components/Entries'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    Entries
   },
   data () {
     return {
@@ -83,7 +112,12 @@ body {
     }
 
     nav {
-      
+      text-align: center;
+      padding-top: 30px;
+      router-link {
+        color: white;
+        list-style-type: none;
+      }
     }
 
   }
