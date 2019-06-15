@@ -114,9 +114,24 @@ body {
     nav {
       text-align: center;
       padding-top: 30px;
-      router-link {
+      a {
         color: white;
-        list-style-type: none;
+       text-decoration: none;
+      }
+    }
+
+  }
+
+  footer {
+    height: 75px;
+    background-color: black;
+
+    nav {
+      text-align: right;
+      padding-top: 30px;
+      a {
+        color: white;
+       text-decoration: none;
       }
     }
 

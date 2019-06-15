@@ -1,9 +1,9 @@
 <template>
      <v-container fluid>
         <v-layout wrap justify-center>
-          <v-flex xs6>
+          <v-flex xs12>
             <div>
-              <p>Title or smtn</p>
+              <p>{{ this.title }} | {{this.date}}</p>
             </div>
           </v-flex>
           <v-flex xs6>

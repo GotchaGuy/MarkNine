@@ -5,9 +5,9 @@
             <v-flex xs6 offset-md3 >
                 <div class="entryPopUp">
                   <div class="uno">
-                    <h2>{{ this.entries.title }}</h2>
-                    <h3>{{ this.entries.date }}</h3>
-                    <p>{{ this.entries.text }}</p>
+                    <h2>{{ this.entries[0].title }}</h2>
+                    <h3>{{ this.entries[0].date }}</h3>
+                    <p>{{ this.entries[0].text }}</p>
                     </div>
                     <div class="optional">
                         <!-- img will be here -->
@@ -36,7 +36,7 @@ export default {
                 //    ask him bout this time stuff n img uploads
                    date: "shenbruary 7th 2019",
                     imagesSrc: ["../assets/storage/hello.jpg"],
-                }
+                },
             ]
         }
     }
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" >
-    div.entryPopUP {
+    div.entryPopUp {
         height: 100%;
         width: 100%;
         background-color: rgb(26, 26, 66);
