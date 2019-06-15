@@ -2,16 +2,19 @@
     
     <v-container fluid>
         <v-layout wrap justify-center>
-            <v-flex xs6 offset-md3 >
+            <v-flex xs4 v-for="(item, index) in this.entries.chapters" v-bind:key="index" >
                 <div class="entryPopUp">
+               <router-link to="/entry" >
                   <div class="uno">
-                    <h2>{{ this.entries[0].title }}</h2>
-                    <h3>{{ this.entries[0].date }}</h3>
-                    <p>{{ this.entries[0].text }}</p>
+                    <h2>{{ item.title }}</h2>
+                    <h3>{{ item.date }}</h3>
+                    <p>{{ item.text }}</p>
                     </div>
                     <div class="optional">
                         <!-- img will be here -->
                     </div>
+                </router-link>
+                <button @click="remove(index)" class="del">x</button>
                 </div>
 
             </v-flex>
@@ -22,22 +25,27 @@
 
 
 <script>
+import axios from "axios"
+
 export default {
     props: [
         
     ],
     data() {
         return{
-            entries: [
-                {
-                    title: "Welcome to Journally",
-                    // how to limit display of text
-                    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. V",
-                //    ask him bout this time stuff n img uploads
-                   date: "shenbruary 7th 2019",
-                    imagesSrc: ["../assets/storage/hello.jpg"],
-                },
-            ]
+             entries: {},
+            myAPI: "link here"
+        }
+    },
+    mounted() {
+        axios.get(this.myAPI)
+        .then ( response => {
+            this.entries = response.data;
+        })
+    },
+    methods: {
+        remove: function() {
+            this.entries.chapters.splice(index, 1);
         }
     }
 }
@@ -45,13 +53,60 @@ export default {
 
 <style lang="scss" >
     div.entryPopUp {
-        height: 100%;
+        height: 100px;
         width: 100%;
-        background-color: rgb(26, 26, 66);
-        color: rgb(255, 187, 0);
-        border: 1px solid rgb(255, 187, 0);
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: 4px solid rgb(11, 84, 112);
         box-sizing: border-box;
-    }
+        padding-left: 10px;
+        text-decoration: none;
+        transition: 0.5s;
+        position: relative;
+        a {
+            text-decoration: none;
+            color: white;
+             div.uno {
+                h2 {
+            font-family: "Arial";
+            font-size: 24px;
+            
+                }
+                h3 {
+            font-family: "Arial";
+            font-size: 16px;
+            padding-left: 10px;
+                }
+                 p {
+            font-family: "Arial";
+            font-size: 14px;
+            padding-left: 10px;
+            padding-top: 10px;
+            height: 40px;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+             text-overflow: ellipsis;
+                }
+            }
+        
+        }
 
+        button.del {
+            height: 20px;
+            width: 20px;
+            border: 4px solid rgb(11, 84, 112);
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    div.entryPopUp:hover {
+        transform: scale(1.1);
+    }
+// rgb(6, 45, 61);
 
 </style>

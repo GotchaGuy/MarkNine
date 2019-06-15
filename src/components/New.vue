@@ -24,6 +24,7 @@ export default {
             addNew: {
             newTitle: "",
             newText: "",
+            newTime: "",
             newImage: "",
             },
            

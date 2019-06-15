@@ -29,10 +29,20 @@
         </v-flex>
         <v-flex xs2 >
           <nav>
-          <router-link to="/" >Entries</router-link> |
-           <router-link to="/about" >About</router-link> |
-            <router-link to="/contact" >Contact</router-link> |
+            <ul>
+              <li>
+          <router-link to="/" >Entries</router-link>
+           </li> |
+           <li>
+           <router-link to="/about" >About</router-link>
+            </li> |
+            <li>
+            <router-link to="/contact" >Contact</router-link>
+             </li> |
+             <li>
              <router-link to="/settings" >Settings</router-link>
+              </li>
+            </ul>
           </nav>
         </v-flex>
 
@@ -58,11 +68,21 @@
             </div>
           </v-flex>
           <v-flex xs6>
-            <nav>
-          <router-link to="/" >Entries</router-link> |
-           <router-link to="/about" >About</router-link> |
-            <router-link to="/contact" >Contact</router-link> |
+             <nav>
+            <ul>
+              <li>
+          <router-link to="/" >Entries</router-link>
+           </li> |
+           <li>
+           <router-link to="/about" >About</router-link>
+            </li> |
+            <li>
+            <router-link to="/contact" >Contact</router-link>
+             </li> |
+             <li>
              <router-link to="/settings" >Settings</router-link>
+              </li>
+            </ul>
           </nav>
           </v-flex>
         </v-layout>
@@ -94,9 +114,15 @@ export default {
 
 
 <style lang="scss" >
+html {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: -75px;
   header {
     height: 250px;
     width: 100%;
@@ -110,14 +136,23 @@ body {
 
     // background-color: rgb(0, 217, 255);
     }
-
+    
     nav {
       text-align: center;
       padding-top: 30px;
-      a {
-        color: white;
+      ul {
+        display: inline-block;
+        padding: 0;
+        li {
+           display: inline-block;
+          list-style-type: none;
+          a {
        text-decoration: none;
+        color: white;
       }
+        }
+      }
+      
     }
 
   }
@@ -125,13 +160,33 @@ body {
   footer {
     height: 75px;
     background-color: black;
-
-    nav {
-      text-align: right;
-      padding-top: 30px;
-      a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    div {
+      height: 100%;
+      width: 100%;
+      text-align: left;
+      p {
         color: white;
+      }
+    }
+    nav {
+      height: 100%;
+      width: 100%;
+      text-align: right;
+      ul {
+        display: inline-block;
+        padding: 0;
+        li {
+           display: inline-block;
+          list-style-type: none;
+          a {
        text-decoration: none;
+        color: white;
+      }
+        }
       }
     }
 
