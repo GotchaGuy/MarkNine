@@ -1,13 +1,13 @@
 <template>
     
     <v-container fluid>
-        <v-layout wrap justify-center>
-            <v-flex xs4 v-for="(item, index) in this.entries.chapters" v-bind:key="index" >
+        <v-layout wrap justify-center column >
+            <v-flex xs4 offset-md4 v-for="(item, index) in this.entries.chapters" v-bind:key="index" >
                 <div class="entryPopUp">
                <router-link to="/entry" >
                   <div class="uno">
                     <h2>{{ item.title }}</h2>
-                    <h3>{{ item.date }}</h3>
+                    <h3>{{ item.time }}</h3>
                     <p>{{ item.text }}</p>
                     </div>
                     <div class="optional">
@@ -34,7 +34,7 @@ export default {
     data() {
         return{
              entries: {},
-            myAPI: "link here"
+            myAPI: "https://api.myjson.com/bins/u2vcd"
         }
     },
     mounted() {
@@ -54,15 +54,17 @@ export default {
 <style lang="scss" >
     div.entryPopUp {
         height: 100px;
-        width: 100%;
+        max-width: 600px;;
         background-color: rgb(0, 0, 0);
         color: rgb(255, 255, 255);
-        border: 4px solid rgb(11, 84, 112);
+        border: 4px solid aqua;
         box-sizing: border-box;
         padding-left: 10px;
+        margin-bottom: 10px;
         text-decoration: none;
         transition: 0.5s;
         position: relative;
+        border-top-right-radius: 50px;
         a {
             text-decoration: none;
             color: white;
@@ -93,20 +95,31 @@ export default {
         }
 
         button.del {
+            display: none;
             height: 20px;
             width: 20px;
-            border: 4px solid rgb(11, 84, 112);
             color: white;
             font-weight: bold;
             font-size: 18px;
+            line-height: 16px;
             position: absolute;
             top: 0;
             right: 0;
+            transition: 0.2s;
+        }
+        button.del:hover {
+            color: rgb(122, 14, 14);
         }
     }
     div.entryPopUp:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
+        border-top-right-radius: 0;
+        button.del {
+            display: inline;
+        }
     }
 // rgb(6, 45, 61);
+
+// rgb(11, 84, 112);
 
 </style>

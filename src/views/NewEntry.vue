@@ -1,12 +1,15 @@
 <template>
-  <Entries/>
+    <New/>
 </template>
 
+
 <script>
-  import Entries from '../components/Entries'
+
+  import New from '../components/NewSection'
   export default {
+      
     components: {
-      Entries,
+      New,
     }
   }
 </script>

@@ -27,7 +27,7 @@
           <h1>Journally</h1>
           </div>
         </v-flex>
-        <v-flex xs2 >
+        <v-flex xs3 >
           <nav>
             <ul>
               <li>
@@ -45,18 +45,26 @@
             </ul>
           </nav>
         </v-flex>
+         <v-flex xs12>
+          <div class="make" >
+          <button>
+            <router-link to="/new" >
+              + <span>add new</span>
+            </router-link>
+             
+            </button>
+          </div>
+        </v-flex>
 
 
 
 
       </v-layout>
     </v-container>
-
     </header>
 
     <main>
       <router-view/>
-
     </main>
 
     <footer>
@@ -134,7 +142,6 @@ body {
     width: 100%;
     text-align: center;
 
-    // background-color: rgb(0, 217, 255);
     }
     
     nav {
@@ -149,11 +156,47 @@ body {
           a {
        text-decoration: none;
         color: white;
-      }
+          }
         }
       }
       
     }
+    div.make {
+      height: 100%;
+      width: 100%;
+      text-align-last: center;
+      transition: 0.3s;
+     
+        
+      button {
+        height: 30px;
+        width: 90px;
+        margin-left: 120px;
+        border: 3px solid aqua;
+        border-radius: 50px;
+        margin-top: 30px;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+         a {
+          //  display: inline-block;
+          transition: all 0.3s ease-in-out;
+           height: 100%;
+           width: 100%;
+           text-decoration: none;
+           color: white;
+         }
+       
+      }
+      button:hover {
+        height: 60px;
+        width: 60px;
+        padding-right: 0;
+           }
+       button:hover span {
+        display: none;
+           }
+    }
+      
 
   }
 
