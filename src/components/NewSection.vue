@@ -1,17 +1,26 @@
 <template>
-    <v-container fluid>
-        <v-layout wrap justify-center>
-          <v-flex xs12>
+    <v-container fluid class="newSec">
+        <v-layout wrap justify-center align-content-center >
             <!-- title -->
+          <v-flex xs2 >
             <div class="title">
              <input type="text" v-model="this.addNew.title" placeholder="Title" >
             </div>
           </v-flex>
-          <v-flex xs12>
+           </v-layout>
+           <v-layout wrap  align-content-center>
+          <!-- text -->
+         <v-flex xs4 offset-xs4 >
+            <div class="text">
+            <textarea v-model="this.addNew.text" placeholder=" Dear Diary," ></textarea>
+            </div>
+          </v-flex>
+            <!-- cols="30" rows="10" -->
             <!-- img -->
+          <v-flex xs3 offset-md4 offset-xs2>
             <div class="file">
-            <div v-if="!image">
-          <h2>Select an image</h2>
+            <div v-if="!this.image">
+          <h2>Pick a pic</h2>
           <input type="file" @change="onFileChange">
            </div>
         <div v-else>
@@ -20,15 +29,10 @@
           </div>
             </div>
           </v-flex>
-          <!-- text -->
-         <v-flex xs12>
-            <div class="text">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            </div>
-          </v-flex>
-          <v-flex xs12>
+           <!-- submit button -->
+          <v-flex xs1 >
             <div class="submit">
-            <input type="submit" value="save">
+            <button @click="doIt">save</button>
             </div>
           </v-flex>
         </v-layout>
@@ -43,13 +47,14 @@ export default {
   name: "New",
     data() {
         return {
+          image: "",
             addNew: {
             newTitle: "",
             newText: "",
             newTime: "",
             newImage: "",
             },
-           
+          //  ../assets/storage/hello.jpg
             entries: [
                 {
                     title: "",
@@ -58,6 +63,24 @@ export default {
         }
     },
     methods: {
+      doIt: function() {
+        this.addNew.newImage = this.image;
+        var today = new Date();
+        var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+        this.addNew.newTime = date;
+        if (this.addNew.newTitle == "") {
+          this.addNew.newTitle = "Story of the" + today.getDate() + ". of " + (today.getMonth()+1) ;
+        }
+        if (this.addNew.newText == "") {
+          alert("Writing text is mandatory for making a new entry. :)");
+          return;
+        }
+        gather();
+
+      },
+      gather: function() {
+
+      },
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length)
@@ -70,29 +93,95 @@ export default {
       var vm = this;
 
       reader.onload = (e) => {
-        vm.AddNew.NewImage = e.target.result;
+        vm.image = e.target.result;
       };
       reader.readAsDataURL(file);
     },
     removeImage: function (e) {
-      this.AddNew.NewImage = '';
+      this.image = '';
     }
   }
 }
 </script>
 
 <style lang="scss">
-// div {
-//   height: 100%;
-//   width: 100%;
-// for fucks sake please be careful mate
-// }
-img {
-  width: 30%;
-  margin: auto;
-  display: block;
-  margin-bottom: 10px;
+
+div.newSec {
+  div {
+  height: 100%;
+  width: 100%;
+    div.title {
+     height: 100%;
+    width: 250px;;
+    margin-left: 30px;
+    input {
+      border-bottom: 2px solid black;
+    }
+    }
+    div.text {
+      margin-top: 20px;
+      height: 100%;
+      width: 100%;
+
+      border: 2px solid aqua;
+      
+      textarea {
+        padding: 5px;
+        min-height: 300px;
+        width: 100%;
+        box-sizing: border-box;
+        text-decoration: underline solid black;
+      }
+    }
+    div.file {
+      height: 100%;
+      width: 100%;
+      h2 {
+        font-size: 16px;
+        font-weight: normal;
+      }
+      input {
+        border-bottom: 2px solid black;
+      }
+       img {
+    width: 50%;
+     margin-top: 10px;
+     display: block;
+     margin-bottom: 10px;
+     }
+     button {
+       font-size: bold;
+        border-radius: 50px;
+        border: 2px solid aqua;
+        width: 100px;
+        transition: 0.7s ease-out;
+     }
+     button:hover {
+        background-color: black;
+        color: white;
+     }
+    }
+    div.submit {
+      padding-top: 25px;
+      text-align: right;
+      button {
+        font-size: bold;
+        border-radius: 50px;
+        border: 2px solid aqua;
+        width: 60px;
+        transition: 0.7s ease-out;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  
+  }
+
 }
+
+
 
 
 </style>

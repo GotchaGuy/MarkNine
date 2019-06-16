@@ -44,7 +44,7 @@ export default {
         })
     },
     methods: {
-        remove: function() {
+        remove: function(index) {
             this.entries.chapters.splice(index, 1);
         }
     }

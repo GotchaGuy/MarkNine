@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Entry from './views/Entry.vue'
 import NewEntry from './views/NewEntry.vue'
+import Contact from './views/Contact.vue'
+import Settings from './views/Settings.vue'
 
 Vue.use(Router)
 
@@ -22,6 +24,16 @@ export default new Router({
       path: '/new',
       name: 'new',
       component: NewEntry
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings
     },
     {
       path: '/about',
