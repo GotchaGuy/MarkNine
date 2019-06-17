@@ -118,7 +118,7 @@ body {
     height: 250px;
     width: 100%;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(26, 26, 26);
 
   div.head {
     height: 100%;
