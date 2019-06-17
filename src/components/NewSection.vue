@@ -15,7 +15,6 @@
             <textarea v-model="this.addNew.text" placeholder=" Dear Diary," ></textarea>
             </div>
           </v-flex>
-            <!-- cols="30" rows="10" -->
             <!-- img -->
           <v-flex xs3 offset-md4 offset-xs2>
             <div class="file">
@@ -36,7 +35,7 @@
             </div>
           </v-flex>
         </v-layout>
-        <Entries v-bind:newData="this.entry" />
+        <Entries v-bind:newData="this.entry"/>
       </v-container>
 
 <!-- v bind the index in the home page v-for to transfer -->
@@ -132,15 +131,15 @@ div.newSec {
     }
     div.text {
       margin-top: 20px;
-      height: 100%;
+      min-height: 300px;
       width: 100%;
 
-      border: 2px solid aqua;
       
       textarea {
         padding: 5px;
         min-height: 300px;
         width: 100%;
+      border: 2px solid aqua;
         box-sizing: border-box;
         text-decoration: underline solid black;
       }
@@ -167,6 +166,7 @@ div.newSec {
         border: 2px solid aqua;
         width: 100px;
         transition: 0.7s ease-out;
+        margin-bottom: 20px;
      }
      button:hover {
         background-color: black;
@@ -192,8 +192,5 @@ div.newSec {
   }
 
 }
-
-
-
 
 </style>
