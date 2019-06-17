@@ -10,17 +10,18 @@
                     <h3>{{ item.time }}</h3>
                     <p>{{ item.text }}</p>
                     </div>
-                    <div class="optional">
-                        <!-- img will be here -->
-                    </div>
+                    <!-- <div v-if="item.image !== ''"  class="optional">
+                        <img :src='item.image' alt="">
+                    </div> -->
                 </router-link>
                 <button @click="remove(index)" class="del">x</button>
                 </div>
-
+                <Entry v-bind:spec="item[index]" />
             </v-flex>
         </v-layout>
+        
     </v-container>
-
+    
 </template>
 
 
@@ -28,9 +29,9 @@
 import axios from "axios"
 
 export default {
-    props: [
-        
-    ],
+    props: {
+        newData: Object,
+    },
     data() {
         return{
              entries: {},
@@ -42,6 +43,7 @@ export default {
         .then ( response => {
             this.entries = response.data;
         })
+        this.entries.chapters.unshift(this.newData);
     },
     methods: {
         remove: function(index) {
@@ -50,7 +52,7 @@ export default {
     }
 }
 </script>
-
+// with the emit thing send info from newSection to Entries.vue later from Entries to Entry style it n that's it
 <style lang="scss" >
     div.entryPopUp {
         height: 100px;
@@ -90,6 +92,11 @@ export default {
             overflow: hidden;
              text-overflow: ellipsis;
                 }
+            }
+            div.optional {
+                height: 100%;
+                width: auto;
+
             }
         
         }

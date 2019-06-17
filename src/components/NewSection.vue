@@ -36,13 +36,14 @@
             </div>
           </v-flex>
         </v-layout>
+        <Entries v-bind:newData="this.entry" />
       </v-container>
 
 <!-- v bind the index in the home page v-for to transfer -->
 </template>
 
 <script>
-
+import Entries from './Entries.vue'
 export default {
   name: "New",
     data() {
@@ -55,11 +56,14 @@ export default {
             newImage: "",
             },
           //  ../assets/storage/hello.jpg
-            entries: [
+            entry: 
                 {
                     title: "",
+                    text: "",
+                    time: "",
+                    image: ""
                 }
-            ]
+          
         }
     },
     methods: {
@@ -72,14 +76,22 @@ export default {
           this.addNew.newTitle = "Story of the" + today.getDate() + ". of " + (today.getMonth()+1) ;
         }
         if (this.addNew.newText == "") {
-          alert("Writing text is mandatory for making a new entry. :)");
-          return;
+          // alert("Writing text is mandatory for making a new entry. :)");
+          // return;
+          this.addNew.newText = "words words words";
         }
-        gather();
+          this.entry.title = this.addNew.newTitle;
+          this.entry.text = this.addNew.newText;
+          this.entry.time = this.addNew.newTime;
+          this.entry.image = this.addNew.newImage;
 
-      },
-      gather: function() {
-
+        this.addNew = {
+           newTitle: "",
+            newText: "",
+            newTime: "",
+            newImage: "",
+        }
+            this.$router.push({ path: '/' });
       },
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
@@ -97,7 +109,7 @@ export default {
       };
       reader.readAsDataURL(file);
     },
-    removeImage: function (e) {
+    removeImage: function () {
       this.image = '';
     }
   }

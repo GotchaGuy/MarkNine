@@ -1,14 +1,14 @@
 <template>
      <v-container fluid>
-        <v-layout wrap justify-center>
-          <v-flex xs12>
-            <div>
-              <p>{{ this.title }} | {{this.date}}</p>
+        <v-layout wrap justify-content-center>
+          <v-flex xs6>
+            <div class="title">
+              <p>{{ this.spec.title }} | {{this.spec.date}}</p>
             </div>
           </v-flex>
           <v-flex xs6>
-             <div>
-              <p>prolly dat img upload button</p>
+             <div class="text">
+              <p>{{this.spec.text}}</p>
             </div>
           </v-flex>
         </v-layout>
@@ -19,12 +19,23 @@
 
 <script>
 export default {
-    name: "Entry"
+    name: "Entry",
+    props: {
+      spec: Object,
+    },
 }
 </script>
 
-<style lang="scss" >
-
+<style lang="scss" scoped>
+  div.title {
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid aqua;
+  }
+  div.text {
+      height: 100%;
+    width: 100%;
+  }
 
 
 </style>
