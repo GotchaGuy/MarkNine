@@ -57,9 +57,9 @@ export default {
     div.entryPopUp {
         height: 100px;
         max-width: 600px;;
-        background-color: rgb(0, 0, 0);
+        background-color: rgb(43, 43, 43);
         color: rgb(255, 255, 255);
-        border: 4px solid aqua;
+        border: 4px solid rgb(50, 144, 143); //rgb(0, 204, 255)
         box-sizing: border-box;
         padding-left: 10px;
         margin-bottom: 10px;
@@ -67,18 +67,19 @@ export default {
         transition: 0.5s;
         position: relative;
         border-top-right-radius: 50px;
+        overflow: hidden;
         a {
             text-decoration: none;
             color: white;
              div.uno {
                 h2 {
             font-family: "Arial";
-            font-size: 24px;
+            font-size: 20px;
             
                 }
                 h3 {
             font-family: "Arial";
-            font-size: 16px;
+            font-size: 14px;
             padding-left: 10px;
                 }
                  p {

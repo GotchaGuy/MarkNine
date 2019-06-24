@@ -1,13 +1,9 @@
 <template>
     <New/>
 </template>
-
-
 <script>
-
   import New from '../components/NewSection'
-  export default {
-      
+  export default {  
     components: {
       New,
     }

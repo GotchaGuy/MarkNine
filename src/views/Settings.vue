@@ -1,6 +1,14 @@
 <template>
-  <div class="settings">
-    <h1>Settings page</h1>
-    <p>darkMode coming soon.. we promise.</p>
-  </div>
+  <Mode/>
 </template>
+
+<script>
+ import Mode from '../components/Mode'
+export default {
+    name: "Settings",
+    components: {
+      Mode
+    }
+
+}
+</script>

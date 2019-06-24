@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-   
+  <v-app id="unicorn">
+   <div  > 
     <header>
 
     <v-container fluid >
@@ -80,7 +80,7 @@
       </v-container>
 
     </footer>
-
+    </div>
   </v-app>
 </template>
 
@@ -105,6 +105,9 @@ export default {
 
 
 <style lang="scss" >
+div.application--wrap {
+    // background-color: lightgray;
+  }
 html {
   height: 100%;
 }
@@ -118,7 +121,7 @@ body {
     height: 250px;
     width: 100%;
     color: white;
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(43, 43, 43);
 
   div.head {
     height: 100%;
@@ -155,13 +158,13 @@ body {
         height: 30px;
         width: 90px;
         margin-left: 120px;
-        border: 3px solid aqua;
+        border: 3px solid rgb(50, 144, 143);
         border-radius: 50px;
         margin-top: 30px;
         font-weight: bold;
         transition: all 0.3s ease-in-out;
          a {
-          //  display: inline-block;
+           display: inline-block;
           transition: all 0.3s ease-in-out;
            height: 100%;
            width: 100%;
@@ -178,18 +181,24 @@ body {
        button:hover span {
         display: none;
            }
+           button:hover a {
+        padding-top: 15px;
+           }
     }
       
 
   }
 
+  
+
   footer {
     height: 75px;
-    background-color: black;
+    background-color: rgb(43, 43, 43);
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
+    border-top: 4px solid rgb(50, 144, 143);
     div {
       height: 100%;
       width: 100%;
@@ -220,6 +229,14 @@ body {
 }
 
 
-
+// mode coloring
+// light
+    .unicorn.light {
+            background-color: lightgray;
+    }
+    .unicorn.dark {
+       background-color: rgb(49, 56, 71);
+      color: rgb(221, 183, 11);
+    }
 
 </style>
