@@ -106,7 +106,7 @@ export default {
 
 <style lang="scss" >
 div.application--wrap {
-    // background-color: lightgray;
+    background-color: lightgray;
   }
 html {
   height: 100%;
@@ -229,14 +229,6 @@ body {
 }
 
 
-// mode coloring
-// light
-    .unicorn.light {
-            background-color: lightgray;
-    }
-    .unicorn.dark {
-       background-color: rgb(49, 56, 71);
-      color: rgb(221, 183, 11);
-    }
+
 
 </style>
